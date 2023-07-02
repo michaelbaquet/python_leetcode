@@ -1,10 +1,8 @@
 def is_valid_palindrome(s: str) -> bool:
-    l, r = 0, len(s) - 1
-
-    s = s.strip()
-
-    if len(s) < 1 or s is None:
+    if s is None:
         return False
+
+    l, r = 0, len(s) - 1
 
     while l < r:
         if not is_alpha_num(s[l]):
@@ -18,6 +16,17 @@ def is_valid_palindrome(s: str) -> bool:
             r -= 1
 
     return True
+
+
+def is_valid_palindrome2(s: str) -> bool:
+    if s is None:
+        return False
+    newStr = ""
+
+    for c in s:
+        if c.isalnum():
+            newStr += c.lower()
+    return newStr == newStr[::-1]
 
 
 def is_alpha_num(character) -> bool:
